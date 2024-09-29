@@ -1,5 +1,6 @@
 package by.dma.spark;
 
+import by.dma.spark.experiments.SparkBaseDemo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,5 +22,7 @@ public class SparkApplication implements CommandLineRunner {
         for (int i = 0; i < args.length; ++i) {
             log.info("args[{}]: {}", i, args[i]);
         }
+
+        new SparkBaseDemo().execute();
     }
 }
