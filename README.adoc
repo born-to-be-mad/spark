@@ -1,0 +1,10 @@
+= Playing with Spark
+Dzmitry Marudau <vinmaster@tut.by>
+1.0, Spetember 29, 2024: Playing with Spark
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+== Spark experiments
+
+TODO
