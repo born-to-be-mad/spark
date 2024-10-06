@@ -3,7 +3,7 @@
  */
 package by.dma;
 
-public class SparkApp {
+public class SparkCOnsoleApp {
     public static void main(String[] args) {
 
         new SparkBaseDemo().execute();
