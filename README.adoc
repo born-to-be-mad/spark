@@ -1,10 +1,20 @@
 = Playing with Spark
 Dzmitry Marudau <vinmaster@tut.by>
-1.0, Spetember 29, 2024: Playing with Spark
+1.0, October 4, 2024: Playing with Spark
 :toc:
 :icons: font
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-== Spark experiments
+== Hints
 
-TODO
+=== All access to restricted API
+
+The `sun.nio.ch.DirectBuffer` class is part of the internal APIs
+that are not exported by the `java.base` module to other modules by default starting form Java 9.
+
+You can add JVM options to allow access to the restricted internal APIs.
+* In Gradle via `applicationDefaultJvmArgs`
+* In IntelliJ IDEA, you can do this by following these steps:
+** Go to `Run > Edit Configuration`
+** Select your run configuration.
+In the VM options field, add the following options: `--add-opens=java.base/sun.nio.ch=ALL-UNNAMED`
