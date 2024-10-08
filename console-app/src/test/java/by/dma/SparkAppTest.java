@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SparkAppTest {
     @Test void appHasAGreeting() {
-        SparkCOnsoleApp classUnderTest = new SparkCOnsoleApp();
+        SparkConsoleApp classUnderTest = new SparkConsoleApp();
         assertNotNull(classUnderTest);
     }
 }
