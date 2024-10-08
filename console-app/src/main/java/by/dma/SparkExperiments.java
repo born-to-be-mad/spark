@@ -20,7 +20,10 @@ public class SparkExperiments {
 
         SparkSession spark = SparkSession.builder().master("local[*]").getOrCreate();
         String[] data = {
+                "-9223372036854775807",
                 "-123",
+                "-12",
+                "0",
                 "qweqwer",
                 "2.12332",
                 null,
@@ -44,20 +47,30 @@ public class SparkExperiments {
             if (fieldLimit != null) {
                 try {
                     Integer.parseInt(fieldLimit);
-                    return "Valid";  // No error
+                    //return "Valid";  // No error
+                    return fieldLimit;
                 } catch (NumberFormatException e) {
                     return "Invalid value: " + fieldLimit;
                 }
             }
-            return "Valid";  // No error if null
+            //return "Valid";  // No error if null
+            return fieldLimit;
         }, DataTypes.StringType);
 
         // Apply UDF and filter rows with errors
-        Dataset<Row> errorsDf = df.withColumn("error", functions.callUDF("validateInteger", col("MAX_CHAR_LIMIT")));
+        Dataset<Row> errorsDf = df
+                .withColumn(
+                        "error",
+                        functions.callUDF("validateInteger", col("INTEGER_VALUE"))
+                )
+                .withColumn(
+                        "absolute_value",
+                        abs(col("INTEGER_VALUE"))
+                );
                 //.filter(col("error").isNotNull()
 
 
-        // Show errors
+        // Ырщц уккщкы
         errorsDf.show(false);
 
         // Collect errors into a list (if needed)
