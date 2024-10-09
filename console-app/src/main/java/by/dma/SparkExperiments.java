@@ -13,7 +13,6 @@ import java.util.List;
 import static org.apache.spark.sql.functions.*;
 
 public class SparkExperiments {
-    private static final String CSV_URL = "movies.csv";
 
     public void testMaxLength() {
         System.out.println("STARTING testMaxLength...");
